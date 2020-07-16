@@ -43,13 +43,12 @@ public class MainActivity extends AppCompatActivity {
                 double clickTime = System.currentTimeMillis() * 1.0;
                 double timeElapsed = (clickTime/1000.0 - initTime/1000.0);
                 //TODO: What is heading, left, and right for data ?
-                writeData("RussellWestbrook",1.0, 1,1,1 );
+                writeData(420,1.0, 1,1,1 );
             }
         });
     }
 
-    private void writeData(String timeElapsed, double avgSpeed, int heading, int left, int right) {
-
+    private void writeData(int timeElapsed, double avgSpeed, int heading, int left, int right) {
         Data d = new Data(timeElapsed,avgSpeed,heading,left,right);
         db.collection("test").add(d);
     }
