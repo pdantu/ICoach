@@ -65,11 +65,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void writeData(double seconds, double avgSpeed, int heading, int left, int right) {
-        //seconds represents amount of time after race begins
-        //characterize data based on time since the race began
-        Data d = new Data(seconds,avgSpeed,heading,left,right);
-        db.child("Tracking").child(String.valueOf(seconds)).setValue(d);
+    private void writeData(double timeElapsed, double avgSpeed, int heading, int left, int right) {
+
+        Data d = new Data(timeElapsed,avgSpeed,heading,left,right);
+        db.child("Tracking").child(String.valueOf(timeElapsed)).setValue(d);
 
     }
 
