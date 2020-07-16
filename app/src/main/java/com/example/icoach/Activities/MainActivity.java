@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
     LocationListener locationListener;
     Firebase db;
     Button imageProcessed;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,9 +31,7 @@ public class MainActivity extends AppCompatActivity {
         imageProcessed = findViewById(R.id.imageProcessed);
         Firebase.setAndroidContext(this);
         db = new Firebase("https://icoach-68bf4.firebaseio.com/");
-
         final double initTime = System.currentTimeMillis() * 1.0;
-
         //TODO: Implementation of Image processing, For now I included a button that mimicks image being processed
         imageProcessed.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,9 +52,5 @@ public class MainActivity extends AppCompatActivity {
         db.child("Tracking").child(String.valueOf(timeElapsed)).setValue(d);
 
     }
-
-    //returns an arraylist containing latitude in index 0 and longitutde in index 1
-
-
 
 }
