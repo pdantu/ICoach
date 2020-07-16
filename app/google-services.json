@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "847941432000",
+    "firebase_url": "https://icoach-68bf4.firebaseio.com",
+    "project_id": "icoach-68bf4",
+    "storage_bucket": "icoach-68bf4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:847941432000:android:68c0e4296d13e65e2fb325",
+        "android_client_info": {
+          "package_name": "com.example.icoach"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "847941432000-p92a5frc9l6e16kkc8q5l8l9rvs107m6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.icoach",
+            "certificate_hash": "b28424986649b17906b11cf50e0dc4a55414f80b"
+          }
+        },
+        {
+          "client_id": "847941432000-ttq0brksif5iht5t50eqfhvpdgk5520s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDU6ZUJFFMR5yUH0FGmrJtdanLmv5xGXk4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "847941432000-ttq0brksif5iht5t50eqfhvpdgk5520s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
