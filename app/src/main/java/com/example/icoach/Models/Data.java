@@ -6,8 +6,10 @@ public class Data
     private int heading;
     private int left;
     private int right;
-    private double timeElapsed;
-    public Data(double timeElapsed, double avgSpeed, int heading, int left, int right) {
+    private String timeElapsed;
+
+
+    public Data(String timeElapsed, double avgSpeed, int heading, int left, int right) {
 
         this.timeElapsed = timeElapsed;
         this.avgSpeed = avgSpeed;
@@ -50,5 +52,8 @@ public class Data
         this.right = right;
     }
 
-
+    @Override
+    public String toString() {
+        return "Russell Westbrook and Paul George";
+    }
 }

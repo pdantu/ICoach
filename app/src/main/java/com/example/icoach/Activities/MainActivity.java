@@ -16,21 +16,25 @@ import android.location.LocationManager;
 import com.example.icoach.Models.Data;
 import com.example.icoach.R;
 import com.firebase.client.Firebase;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     LocationManager locationManager;
     LocationListener locationListener;
-    Firebase db;
+    Firebase data;
+    FirebaseFirestore db;
     Button imageProcessed;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         imageProcessed = findViewById(R.id.imageProcessed);
         Firebase.setAndroidContext(this);
-        db = new Firebase("https://icoach-68bf4.firebaseio.com/");
+        db = FirebaseFirestore.getInstance(FirebaseApp.initializeApp(this));
         final double initTime = System.currentTimeMillis() * 1.0;
         //TODO: Implementation of Image processing, For now I included a button that mimicks image being processed
         imageProcessed.setOnClickListener(new View.OnClickListener() {
@@ -39,18 +43,14 @@ public class MainActivity extends AppCompatActivity {
                 double clickTime = System.currentTimeMillis() * 1.0;
                 double timeElapsed = (clickTime/1000.0 - initTime/1000.0);
                 //TODO: What is heading, left, and right for data ?
-                writeData(timeElapsed,1.0, 1,1,1 );
+                writeData("RussellWestbrook",1.0, 1,1,1 );
             }
         });
-
-
     }
 
-    private void writeData(double timeElapsed, double avgSpeed, int heading, int left, int right) {
+    private void writeData(String timeElapsed, double avgSpeed, int heading, int left, int right) {
 
         Data d = new Data(timeElapsed,avgSpeed,heading,left,right);
-        db.child("Tracking").child(String.valueOf(timeElapsed)).setValue(d);
-
+        db.collection("test").add(d);
     }
-
 }
