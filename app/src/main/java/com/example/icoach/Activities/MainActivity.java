@@ -20,8 +20,6 @@ import com.firebase.client.Firebase;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    LocationManager locationManager;
-    LocationListener locationListener;
     Firebase db;
     Button imageProcessed;
     @Override
@@ -30,9 +28,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         imageProcessed = findViewById(R.id.imageProcessed);
         Firebase.setAndroidContext(this);
-        db = new Firebase("https://icoach-68bf4.firebaseio.com/");
+        db = new Firebase("https://icoach-68bf4.firebaseio.com/test/testDoc");
         final double initTime = System.currentTimeMillis() * 1.0;
-        //TODO: Implementation of Image processing, For now I included a button that mimicks image being processed
+        //TODO: Implementation of Image processing, For now I included a button that mimicks image being processe
         imageProcessed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
