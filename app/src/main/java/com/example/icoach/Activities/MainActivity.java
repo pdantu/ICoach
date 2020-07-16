@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
     LocationListener locationListener;
     Firebase db;
     Button imageProcessed;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,33 +31,15 @@ public class MainActivity extends AppCompatActivity {
         imageProcessed = findViewById(R.id.imageProcessed);
         Firebase.setAndroidContext(this);
         db = new Firebase("https://icoach-68bf4.firebaseio.com/");
-
-        //Arraylist of coordinates for initial location when app is launched
-        ArrayList<Double> initCord = getLoc();
-        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        //Set the appropriate lat/longitutde for the inital location
-        final Location initLoc;
-        initLoc = new Location("Initial");
-        initLoc.setLatitude(initCord.get(0));
-        initLoc.setLongitude(initCord.get(1));
-        //Store the current time in seconds
         final double initTime = System.currentTimeMillis() * 1.0;
-
         //TODO: Implementation of Image processing, For now I included a button that mimicks image being processed
         imageProcessed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final ArrayList<Double> onProcessedCord;
-                final Location processedLoc;
-                processedLoc = new Location("Processed Location");
-                onProcessedCord = getLoc();
-                processedLoc.setLatitude(onProcessedCord.get(0));
-                processedLoc.setLongitude(onProcessedCord.get(1));
                 double clickTime = System.currentTimeMillis() * 1.0;
                 double timeElapsed = (clickTime/1000.0 - initTime/1000.0);
-                double distance = initLoc.distanceTo(processedLoc);
                 //TODO: What is heading, left, and right for data ?
-                writeData(timeElapsed,distance/timeElapsed, 1,1,1 );
+                writeData(timeElapsed,1.0, 1,1,1 );
             }
         });
 
@@ -71,31 +52,5 @@ public class MainActivity extends AppCompatActivity {
         db.child("Tracking").child(String.valueOf(timeElapsed)).setValue(d);
 
     }
-
-    //returns an arraylist containing latitude in index 0 and longitutde in index 1
-    public ArrayList<Double> getLoc()
-    {
-        ArrayList<Double> coord = new ArrayList<Double>();
-        double lat;
-        double lon;
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
-           && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
-        }
-        else {
-            Location GPS = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-            if(GPS != null)
-            {
-                 lat = GPS.getLatitude();
-                 coord.add(lat);
-                 lon = GPS.getLongitude();
-                 coord.add(lon);
-            }
-        }
-        return coord;
-    }
-
 
 }
