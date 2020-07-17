@@ -10,11 +10,12 @@ export class InsightService {
   constructor(public db: AngularFirestore) { }
 
   getTestData() {
-    return new Observable<any>(() => {
-      this.db.collection('/test').valueChanges().subscribe(response => {
-        console.log(response);
-      });
+    // return new Observable<any>(() => {
+    this.db.collection('/test').valueChanges().subscribe(response => {
+      console.log(response);
+      return response;
     });
-  }
+  };
+  // }
 
 }

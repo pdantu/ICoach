@@ -17,10 +17,8 @@ export class AppComponent implements OnInit {
   }
 
   showTestData() {
-    this.insightService.getTestData().subscribe(response => {
-      this.data = response;
-      console.log(this.data);
-    });
+    this.data = this.insightService.getTestData();
+    console.log(this.data);
   }
 
 }
