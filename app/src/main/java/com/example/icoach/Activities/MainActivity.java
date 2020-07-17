@@ -22,12 +22,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    LocationManager locationManager;
-    LocationListener locationListener;
-    Firebase data;
+
     FirebaseFirestore db;
     Button imageProcessed;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
