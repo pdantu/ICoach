@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 double clickTime = System.currentTimeMillis() * 1.0;
                 double timeElapsed = (clickTime/1000.0 - initTime/1000.0);
                 //TODO: What is heading, left, and right for data ?
-                writeData(420,1.0, 1,1,1 );
+                writeData(12,9.0, 40,90,80);
             }
         });
     }
