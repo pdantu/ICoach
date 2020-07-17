@@ -9,7 +9,7 @@ export class InsightService {
 
   constructor(public db: AngularFirestore) { }
 
-  getTestData(): Observable<any> {
+  getTestData() {
     return new Observable<any>(() => {
       this.db.collection('/test').valueChanges().subscribe(response => {
         console.log(response);
@@ -17,7 +17,4 @@ export class InsightService {
     });
   }
 
-  addTestData() {
-
-  }
 }
