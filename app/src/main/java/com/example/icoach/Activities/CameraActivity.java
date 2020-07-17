@@ -1,10 +1,12 @@
-package com.example.icoach;
+package com.example.icoach.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.SurfaceView;
 import android.widget.Toast;
+
+import com.example.icoach.R;
 
 import org.opencv.android.BaseLoaderCallback;
 import org.opencv.android.CameraBridgeViewBase;
